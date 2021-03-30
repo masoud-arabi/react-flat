@@ -1,6 +1,5 @@
 @import "card";
 
-
 body {
   background-color: white;
 }
@@ -23,17 +22,9 @@ body {
   top: 0 !important;
 }
 
-.flat-list {
-  padding-left: 10px;
-  width: 60%;
+.flat {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  .card {
-    width: calc(50% - 10px);
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
 }
 
 .marker {
