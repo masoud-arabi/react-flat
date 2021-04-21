@@ -1,7 +1,7 @@
-import React from 'react';
-
-export default  flatsReducers = (state, action)=>{
-    
+const flatReducer = (state, action) => {
+    if (state === undefined) {
+        return [];
+      }
     switch (action.type){
 
         case 'SET_FLATS':
@@ -9,5 +9,7 @@ export default  flatsReducers = (state, action)=>{
 
         default:
             return state;
-    }
+    };
 };
+
+export default flatReducer;

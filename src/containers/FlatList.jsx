@@ -1,41 +1,35 @@
 import React,{Component} from 'react';
-import Flat from '../components/Flat';
+import Flat from '../containers/Flat';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import setFlats from '../reducers/flatsReducer';
+import {setFlats} from '../actions';
 
 
 class FlatList extends Component {
 
-    static defaultProps = {
-        flats: [{
-        "name": "Charm at the Steps of Montmartre",
-        "imageUrl": "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat1.jpg",
-        "price": 164,
-        "priceCurrency": "EUR"
-        }]
-    };
+   
     componentWillMount(){
-        
-        this.props.setFlats();
+       setTimeout(()=> this.props.setFlats(), 2000);
     }
+
     render() { 
         return ( 
-            <div className='flat col-sm-7'>FLat
+            <div className='flat col-sm-7'>
                 {this.props.flats.map((flat)=> <Flat flat={flat} key={flat.name}/>)}
             </div>
          );
     }
 }
- const mapDispatchToProps = (dispatch) => {
+function mapDispatchToProps(dispatch) {
     return bindActionCreators(
-        {setFlats: setFlats},
-        dispatch,
+    { setFlats: setFlats },
+    dispatch
     );
- };
+   } 
 
- const mapStateReduxToProps = (ReduxState)=>{
-    state
- };
- 
-export default connect(null, mapDispatchToProps)(FlatList);
+ function mapStateToProps(state) {
+    return {
+    flats: state.flats
+    }
+   }  
+export default connect(mapStateToProps, mapDispatchToProps)(FlatList);
