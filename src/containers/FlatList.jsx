@@ -9,7 +9,7 @@ class FlatList extends Component {
 
    
     componentWillMount(){
-       setTimeout(()=> this.props.setFlats(), 2000);
+        this.props.setFlats();
     }
 
     render() { 

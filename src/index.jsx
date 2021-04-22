@@ -7,6 +7,7 @@ import App from './components/App';
 import flatReducer from './reducers/flatReducer';
 import selectedFlatReducer from './reducers/selected_flat_reducer';
 import { logger } from 'redux-logger';
+import reduxPromise from 'redux-promise';
 
 
 const reducers = combineReducers({
@@ -15,7 +16,7 @@ const reducers = combineReducers({
 });
 // render an instance of the component in the DOM
 
-const middlewares = applyMiddleware(logger);
+const middlewares = applyMiddleware(logger, reduxPromise);
 
 ReactDOM.render(
     <Provider store={createStore(reducers, {}, middlewares)}>
